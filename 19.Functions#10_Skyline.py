@@ -19,5 +19,5 @@ def myfunc(mystring):
             output += mystring[x]
     return output
 
-
+#test solution
 print(myfunc('barnyard'))
