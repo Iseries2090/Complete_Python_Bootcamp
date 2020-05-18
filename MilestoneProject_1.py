@@ -6,9 +6,11 @@ from IPython.display import clear_output
 
 def display_board(board):
     clear_output()
+    print("\n")
     print(board[7] + "|" + board[8] + "|" + board[9])
     print(board[4] + "|" + board[5] + "|" + board[6])
     print(board[1] + "|" + board[2] + "|" + board[3])
+    print("\n")
 
 #Test the display board function
 #test_board = ['#','X','O','X','O','X','O','X','O','X']
@@ -21,7 +23,7 @@ def player_input():
     '''
     marker = ''
     while marker != 'X' and marker != 'O':
-        marker = input("Player1: Choose X or O").upper()
+        marker = input("Player1: Choose X or O: ").upper()
     if marker == "X":
         return ('X', 'O')
     else:
@@ -52,8 +54,7 @@ def win_check(board, mark):
     (board[9] == board[6] == board[3] == mark) or
     #2 diagonals, check to see marker matches
     (board[7] == board[5] == board[3] == mark) or
-    (board[9] == board[5] == board[1] == mark)
-    )
+    (board[9] == board[5] == board[1] == mark))
 
 #Test win_check function
 #display_board(test_board)
@@ -90,7 +91,7 @@ def player_choice(board):
 
 def replay():
     
-    choice = input("Play again?  Enter Yes or No")
+    choice = input("Play again?  Enter Yes or No: ")
     
     return choice == 'Yes'
 
@@ -144,7 +145,7 @@ while True:
             #choose a position
             position = player_choice(the_board)
             # place the marker on the position
-            place_maker(the_board,player2_marker,position)
+            place_marker(the_board,player2_marker,position)
             #check if they won
             if win_check(the_board,player2_marker):
                 display_board(the_board)
